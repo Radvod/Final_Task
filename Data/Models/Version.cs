@@ -11,7 +11,7 @@ namespace Final_Task.Data.Models
         public DateTime UploadTime { get; set; }
         public long Size { get; set; }
         public int VersionCounter { get; set; }
-        public int MaterialId { get; set; } // внешний ключ
-        public Material Material { get; set; } // навигационный ключ
+        public int MaterialId { get; set; } 
+        public Material Material { get; set; } 
     }
 }

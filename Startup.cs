@@ -25,7 +25,6 @@ namespace Final_Task
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
@@ -51,14 +50,10 @@ namespace Final_Task
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddTransient<IMaterialService, MaterialService>();
-            //services.AddTransient<IMaterialRepository, MaterialRepository>();
-            //services.AddTransient<IVersionRepository, VersionRepository>();
-
             services.AddScoped<IMaterialRepository, MaterialRepository>();
             services.AddScoped<IVersionRepository, VersionRepository>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
